@@ -1,5 +1,27 @@
 #!/usr/bin/env perl
 
+=head1 NAME
+
+COMBINE-ARF.pl
+
+=head1 AUTHOR
+
+Syed Reza
+
+=head1 SYNOPSIS
+
+combine-arff.pl <first.arff> <second.arff>
+
+Outputs to STDOUT.
+
+I advise you to forward to some file
+
+=head1 DESCRIPTION
+
+Combine two arff files into one arff file
+
+=cut
+
 my $a = $ARGV[0];
 my $b = $ARGV[1];
 
