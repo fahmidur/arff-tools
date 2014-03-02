@@ -1,4 +1,4 @@
-## ARFF Helper Scripts
+## ARFF-Tools: Arff Helper Scripts
 
 This is a small collection of support scripts for manipulating and converting Weka ARFF files.
 These scripts are mostly designed for me and not intended for general public use. But it's here in case anyone finds them useful.
