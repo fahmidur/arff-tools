@@ -12,3 +12,6 @@ Converts your arff file into a data file suitable for FANN. This script chooses 
 ### arff-regex-instance-filter.pl
 Allows you to filter your arff by whatever regex you want. You give it an input arff, a regex, and the name of
 some attribute and it will generate two arffs, one for every matching instance and another for every non-matching instance.
+
+### combine-arff.pl
+Combine two compatible arff files into one. We keep the header of the first arff file. Small and simple.
