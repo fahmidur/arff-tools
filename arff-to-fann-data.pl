@@ -29,8 +29,7 @@ sub die_with_usage { my $error = shift;
 
 =head1 DESCRIPTION
 
-This is not a very general purpose script. 
-It treats all Numeric values in 
+This is not a general purpose script. It treats all Numeric values in 
 the input arff file as input nodes in FANN.
 
 It allows you to specify the target attribute in the ARFF file
@@ -83,7 +82,7 @@ my $output_node_count = 0;
 
 open($arff_fh, "<$arff");
 while(<$arff_fh>) { chomp;
-	if($_ =~ /^\s*\@data/) {
+	if($_ =~ /^\s*\@data/i) {
 		$indata = 1;
 		unless(defined($attr)) {
 			$target_attr_name = $attr_name;
@@ -110,7 +109,7 @@ while(<$arff_fh>) { chomp;
 			if(scalar(@vector) == $expected_vector_length) { $count++; }
 		}
 	} else {
-		if($_ =~ /^\s*\@attribute\s+(.+)\s+(.+)\s*$/) {
+		if($_ =~ /^\s*\@attribute\s+(.+)\s+(.+)\s*$/i) {
 			$attr_name = $1; 
 			$attr_type = $2;
 
@@ -133,6 +132,9 @@ while(<$arff_fh>) { chomp;
 	}
 }
 close($arff_fh);
+print "TARGET_ATTR_INDEX = $target_attr_index\n";
+print "TARGET_ATTR_NAME = $target_attr_name\n";
+print "TARGET_ATTR_TYPE = $target_attr_type\n";
 
 unless(defined($target_attr_index) && defined($target_attr_name) && defined($target_attr_type)) {
 	die_with_usage("Target Attribute Not Found. \nARFF invalid or \@attribute does not exist");
@@ -163,7 +165,7 @@ print $data_fh "$count $input_node_count $output_node_count\n";
 $indata = 0; $count = 0;
 open($arff_fh, "<$arff");
 while(<$arff_fh>) { chomp;
-	if($_ =~ /^\s*\@data/) { $indata = 1; next;}
+	if($_ =~ /^\s*\@data/i) { $indata = 1; next;}
 	if($indata) {
 		# last;
 		if($_ !~ /^\s*$/) {

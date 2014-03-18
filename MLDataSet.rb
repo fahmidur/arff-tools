@@ -77,7 +77,7 @@ class MLDataSet
 			end
 			f.puts "@DATA"
 			@featureVectors.each do |vec|
-				vec.map! {|e| e.inspect }
+				# vec.map! {|e| e }
 				f.puts vec.join(',')
 			end
 		end
